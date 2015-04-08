@@ -8,7 +8,7 @@ public class SupportSystem {
 		Responder responder = new Responder();
 		
 		while(true){
-			responder.responds(input.getMSG());
+			System.out.println(responder.generateResponse(input.getMSG()));
 		}
 		
 	}
