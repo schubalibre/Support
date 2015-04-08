@@ -48,9 +48,9 @@ public class ResponseList implements ResponseMapInterface {
 		
 		List<String> keys = new ArrayList<String>();
 		
-		for(MapElement mapElement : responseList){
+		for(MapElement mapElement : responseList)
 			keys.add(mapElement.getKey());
-		}
+		
 		return keys;
 	}
 

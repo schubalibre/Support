@@ -1,39 +1,44 @@
 package classes;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import interfaces.ResponseMapInterface;
 
 public class ResponseMap implements ResponseMapInterface {
 
+	private Map<String, String> responseMap = new HashMap<String, String>();
+	
 	@Override
 	public String get(String key) {
-		// TODO Auto-generated method stub
-		return null;
+		return responseMap.get(key);
 	}
 
 	@Override
 	public void put(String key, String msg) {
-		// TODO Auto-generated method stub
-
+		responseMap.put(key, msg);
 	}
 
 	@Override
 	public boolean contains(String key) {
-		// TODO Auto-generated method stub
-		return false;
+		return responseMap.containsKey(key);
 	}
 
 	@Override
 	public List<String> allKeys() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		List<String> keys = new ArrayList<String>();
+		
+		for ( String elem : responseMap.keySet() )
+			keys.add(elem);
+		return keys;
 	}
 
 	@Override
 	public int size() {
-		// TODO Auto-generated method stub
-		return 0;
+		return responseMap.size();
 	}
 
 }
