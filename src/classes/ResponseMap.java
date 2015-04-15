@@ -18,7 +18,7 @@ public class ResponseMap implements ResponseMapInterface {
 
 	@Override
 	public void put(String key, String msg) {
-		responseMap.put(key, msg);
+		responseMap.put(key.toLowerCase().trim(), msg);
 	}
 
 	@Override

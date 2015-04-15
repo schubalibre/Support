@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class InputReader {
 
-	Scanner scanner = new Scanner(System.in); 
+	private Scanner scanner = new Scanner(System.in); 
 	
 	public InputReader(){
 		System.out.println("Herzlich Willkommen. Was ist Ihr Problem?"); 

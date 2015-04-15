@@ -1,11 +1,13 @@
 package classes;
 
+import interfaces.ResponseMapInterface;
+
 import java.util.ArrayList;
 import java.util.Random;
 
 public class Responder {
 	
-	private ResponseMap responseMap;
+	private ResponseMapInterface responseMap;
 	private Random randomGenerator = new Random();
 	private ArrayList<String> defaultList;
 	
@@ -37,7 +39,7 @@ public class Responder {
 	}
 	
 	public String generateResponse(String keyword){
-		String answer = responseMap.get(keyword);
+		String answer = responseMap.get(keyword.toLowerCase().trim());
 		if(answer != null) return answer;
 		return pickDefaulteResponse();
 	}

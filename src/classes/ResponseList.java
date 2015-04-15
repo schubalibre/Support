@@ -15,7 +15,7 @@ public class ResponseList implements ResponseMapInterface {
 		String answer = null;
 		
 		for(MapElement<String, String> mapElement : responseList){
-			if(key.trim().toLowerCase().contains(mapElement.getKey())){
+			if(mapElement.getKey().contains(key)){
 				answer = mapElement.getValue();
 			}
 		}
@@ -27,20 +27,12 @@ public class ResponseList implements ResponseMapInterface {
 		
 		if(this.contains(key)) throw new DuplicateKeyException();
 	
-		responseList.add(new MapElement<String, String>(key, msg));
+		responseList.add(new MapElement<String, String>(key.toLowerCase().trim(), msg));
 	}
 
 	@Override
 	public boolean contains(String key) {
-		
-		if(this.size() == 0) return false;
-		
-		for(MapElement<String, String> mapElement : responseList){
-			if(mapElement.getKey().equals(key)){
-				return true;
-			}
-		}
-		return false;
+		return this.allKeys().contains(key);
 	}
 
 	@Override
