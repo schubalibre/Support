@@ -1,18 +1,22 @@
 package classes;
 
 import interfaces.ResponseMapInterface;
-
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.TreeMap;
 
 public class Responder {
 	
-	private ResponseMapInterface responseMap;
+	//private ResponseMapInterface responseMap;
+	private TreeMap<String,String> responseMap;
 	private Random randomGenerator = new Random();
 	private ArrayList<String> defaultList;
 	
 	public Responder(){
-		responseMap = new ResponseMap();
+		//responseMap = new ResponseList();
+		//responseMap = new ResponseMap();
+		responseMap = new TreeMap<String, String>();
+		
 		this.fillResponseList();
 		defaultList = new ArrayList<String>();
 		this.fillDefaultList();
