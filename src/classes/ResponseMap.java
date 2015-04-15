@@ -28,12 +28,8 @@ public class ResponseMap implements ResponseMapInterface {
 
 	@Override
 	public List<String> allKeys() {
-		
-		List<String> keys = new ArrayList<String>();
-		
-		for ( String elem : responseMap.keySet() )
-			keys.add(elem);
-		return keys;
+		// wird automatisch gecastet
+		return new ArrayList<String>(responseMap.keySet());
 	}
 
 	@Override

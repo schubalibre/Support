@@ -8,13 +8,13 @@ import interfaces.ResponseMapInterface;
 
 public class ResponseList implements ResponseMapInterface {
 	
-	private ArrayList<MapElement> responseList = new ArrayList<MapElement>();
+	private ArrayList<MapElement<String, String>> responseList = new ArrayList<MapElement<String, String>>();
 
 	@Override
 	public String get(String key) {
 		String answer = null;
 		
-		for(MapElement mapElement : responseList){
+		for(MapElement<String, String> mapElement : responseList){
 			if(key.trim().toLowerCase().contains(mapElement.getKey())){
 				answer = mapElement.getValue();
 			}
@@ -27,7 +27,7 @@ public class ResponseList implements ResponseMapInterface {
 		
 		if(this.contains(key)) throw new DuplicateKeyException();
 	
-		responseList.add(new MapElement(key, msg));
+		responseList.add(new MapElement<String, String>(key, msg));
 	}
 
 	@Override
@@ -35,7 +35,7 @@ public class ResponseList implements ResponseMapInterface {
 		
 		if(this.size() == 0) return false;
 		
-		for(MapElement mapElement : responseList){
+		for(MapElement<String, String> mapElement : responseList){
 			if(mapElement.getKey().equals(key)){
 				return true;
 			}
@@ -48,7 +48,7 @@ public class ResponseList implements ResponseMapInterface {
 		
 		List<String> keys = new ArrayList<String>();
 		
-		for(MapElement mapElement : responseList)
+		for(MapElement<String, String> mapElement : responseList)
 			keys.add(mapElement.getKey());
 		
 		return keys;

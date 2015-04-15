@@ -1,19 +1,19 @@
 package classes;
 
-public class MapElement {
+public class MapElement <K,V> {
 	
-	private String key;
-	private String value;
+	private K key;
+	private V value;
 	
-	public MapElement(String key, String value){
+	public MapElement(K key, V value){
 		this.key = key;
 		this.value = value;
 	}
 	
-	public String getKey() {
+	public K getKey() {
 		return key;
 	}
-	public String getValue() {
+	public V getValue() {
 		return value;
 	}
 	
