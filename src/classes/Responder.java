@@ -1,7 +1,8 @@
 package classes;
 
-import interfaces.ResponseMapInterface;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Random;
 import java.util.TreeMap;
 
@@ -42,9 +43,16 @@ public class Responder {
 
 	}
 	
-	public String generateResponse(String keyword){
-		String answer = responseMap.get(keyword.toLowerCase().trim());
-		if(answer != null) return answer;
+	public String generateResponse(HashSet<String> words){
+		
+		Iterator<String> it = words.iterator();
+		
+		while(it.hasNext()){
+			String word = it.next();
+			String answer = responseMap.get(word);
+			if(answer != null) return answer;
+		}
+
 		return pickDefaulteResponse();
 	}
 	
